@@ -1,5 +1,6 @@
 ---
-
+import "@/styles/starwind.css";
+import Dropdown from "@/components/starwind/dropdown";
 ---
 
 <html lang="en">
@@ -11,7 +12,40 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+
+	<body class="min-h-screen flex flex-col">
+		<header
+			class="flex-none h-10 bg-gray-500 border-b"
+			transition:name="page-header"
+		>
+			<div
+				class="h-full flex items-center justify-between max-w-7xl mx-auto px-10 py-2"
+			>
+				<div>Title</div>
+
+				<Dropdown.Root>
+					<Dropdown.Trigger> Dropdown </Dropdown.Trigger>
+					<Dropdown.Content align="end">
+						<Dropdown.Item as="a" href="/"> Home </Dropdown.Item>
+						<Dropdown.Item as="a" href="/"> About </Dropdown.Item>
+						<Dropdown.Item as="a" href="/"> Contact </Dropdown.Item>
+					</Dropdown.Content>
+				</Dropdown.Root>
+			</div>
+		</header>
+
+		<main
+			class="flex-auto w-full max-w-5xl mx-auto p-10 bg-amber-300"
+			transition:name="page-content"
+		>
+			Body
+		</main>
+
+		<footer
+			class="flex-none h-10 bg-gray-500"
+			transition:name="page-footer"
+		>
+			Footer
+		</footer>
 	</body>
 </html>
